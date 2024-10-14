@@ -5,7 +5,8 @@ const quotetext = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
-constloader = document.getElementById('loader');
+const loader = document.getElementById('loader');
+const caller = document.getElementById('remember');
 
 //Show Loading
 function loading(){
@@ -17,6 +18,15 @@ function loading(){
 function complete(){
     quoteContainer.hidden= false;
     loader.hidden = true;
+}
+
+//Changing h4 tag names
+
+const calls = ['Remember,', 'Never Forget,', 'Keep in mind,', 'Pitch this in your heart and mind,' ]
+
+function changingCalls(){
+    const call = calls[Math.floor(Math.random()*calls.length)]
+    caller.textContent = call
 }
 //Get QUOTES from API
 //Use Async code-try and catch functions to fetch data
@@ -54,6 +64,7 @@ function newQUOTE(){
 
 async function getQuotes(){
     loading();
+    changingCalls();
     const apiURL = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
     try{
         const response= await fetch(apiURL);
@@ -75,7 +86,10 @@ function tweetQuote(){
 */
 
 //Event Listeners
-newQuoteBtn.addEventListener('click', newQUOTE);
+newQuoteBtn.addEventListener('click', function(){
+    newQUOTE();
+    changingCalls();
+});
 //twitterBtn.addEventListener('click', tweetQuote);
 //When page loaded
 getQuotes();
