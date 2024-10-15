@@ -77,19 +77,19 @@ async function getQuotes(){
 }
 
 //Tweet Quote
-/*
+
 function tweetQuote(){
-    const twitterUrl = `link?text=${quoteText.textContent} - ${authorText.textContent}`;
+    const twitterUrl = `https://www.threads.net/intent/post?text=${quotetext.textContent} - ${authorText.textContent}`;
     //open twitter in new window
     window.open(twitterUrl, '_blank')
 }
-*/
+
 
 //Event Listeners
 newQuoteBtn.addEventListener('click', function(){
     newQUOTE();
     changingCalls();
 });
-//twitterBtn.addEventListener('click', tweetQuote);
+twitterBtn.addEventListener('click', tweetQuote);
 //When page loaded
 getQuotes();
