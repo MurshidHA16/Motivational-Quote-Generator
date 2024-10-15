@@ -3,7 +3,7 @@
 const quoteContainer = document.getElementById('quote-container');//used for loader
 const quotetext = document.getElementById('quote');
 const authorText = document.getElementById('author');
-const twitterBtn = document.getElementById('twitter');
+const threadBtn = document.getElementById('thread');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 const caller = document.getElementById('remember');
@@ -78,10 +78,10 @@ async function getQuotes(){
 
 //Tweet Quote
 
-function tweetQuote(){
-    const twitterUrl = `https://www.threads.net/intent/post?text=${quotetext.textContent} - ${authorText.textContent}`;
+function threadQuote(){
+    const threadUrl = `https://www.threads.net/intent/post?text=${quotetext.textContent} - ${authorText.textContent}`;
     //open twitter in new window
-    window.open(twitterUrl, '_blank')
+    window.open(threadUrl, '_blank')
 }
 
 
@@ -90,6 +90,6 @@ newQuoteBtn.addEventListener('click', function(){
     newQUOTE();
     changingCalls();
 });
-twitterBtn.addEventListener('click', tweetQuote);
+threadBtn.addEventListener('click', threadQuote);
 //When page loaded
 getQuotes();
